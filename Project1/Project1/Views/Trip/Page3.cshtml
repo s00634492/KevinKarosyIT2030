@@ -1,0 +1,28 @@
+﻿@model Trip
+@{
+    ViewBag.Title = "Add Trip - Page 3";
+}
+
+<h4 class="bg-light p-2">Add Things To Do in @TempData.Peek("Destination").ToString()</h4>
+
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <input type="hidden" asp-for="Destination" />
+
+    <div class="form-group">
+        <input asp-for="ThingToDo1" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input asp-for="ThingToDo2" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <input asp-for="ThingToDo3" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Cancel" class="btn btn-outline-secondary">Cancel</a>
+
+</form>

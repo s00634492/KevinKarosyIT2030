@@ -1,0 +1,26 @@
+﻿@model Trip
+@{
+    ViewBag.Title = "Add Trip - Page 2";
+}
+
+<h4 class="bg-light p-2">Add Info for @TempData.Peek("Accommodation")?.ToString()</h4>
+
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <input type="hidden" asp-for="Destination" />
+
+    <div class="form-group">
+        <label asp-for="AccommodationPhone">Phone Number</label>
+        <input asp-for="AccommodationPhone" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="AccommodationEmail">Email Address</label>
+        <input asp-for="AccommodationEmail" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Next</button>
+    <a asp-action="Cancel" class="btn btn-outline-secondary">Cancel</a>
+
+</form>

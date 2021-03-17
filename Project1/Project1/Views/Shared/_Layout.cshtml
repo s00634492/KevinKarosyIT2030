@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="container">
+        <header class="text-center">
+
+            <h1 class="bg-secondary mt-3 p-3 text-white">My Trip Log</h1>
+
+            @if (ViewData["message"]!=null){
+                <h4 class="bg-light p-2">@ViewData["message"]?.ToString()</h4>
+            }
+
+        </header>
+        <main>
+            @RenderBody()
+        </main>
+    </div>
+</body>
+</html>
