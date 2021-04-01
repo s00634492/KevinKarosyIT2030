@@ -1,0 +1,39 @@
+﻿@model PriceQuotation
+@{
+    ViewBag.Title = "Price Quotation";
+}
+
+@section scripts{
+    <link rel="stylesheet" href="~/css/CustomStyle.css" />
+}
+
+<h1 id="myHeader">Price Quotation</h1>
+
+<div asp-validation-summary="All" class="myDangerText"></div>
+
+<form asp-action="Index" method="post">
+    <table>
+        <tr>
+            <td><label>Subtotal:</label></td>
+            <td><input asp-for="Subtotal"></td>
+        </tr>
+        <tr>
+            <td><label>Discount percent:</label></td>
+            <td><input asp-for="DiscountPercent"></td>
+        </tr>
+        <tr>
+            <td><label>Discount amount:</label></td>
+            <td><label>@Model.DiscountAmount.ToString("C")</label></td>
+        </tr>
+        <tr>
+            <td><label>Total:</label></td>
+            <td><label>@Model.Total.ToString("C")</label></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Calculate" />
+                <a asp-action="Index">Clear</a>
+            </td>
+        </tr>
+    </table>
+</form>
