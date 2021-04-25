@@ -1,0 +1,57 @@
+﻿@model PriceQuotation
+@{
+    ViewBag.Title = "Price Quotation";
+}
+
+@section scripts{
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
+    <style>h1 {font-size: 4rem;}</style>
+}
+
+<div class="container">
+    <header class="jumbotron bg-success text-center text-white">
+        <h1>
+            <span class="fas fa-money-bill-alt"></span>
+            @ViewBag.Title
+        </h1>
+    </header>
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <main>
+        <form asp-action="Index" method="post">
+            <div class="form-group row">
+                <label for="subtotal" class="col-sm-3">Subtotal:</label>
+                <div class="col-sm-4">
+                    <input asp-for="Subtotal" id="subtotal" class="form-control">
+                </div>
+                <div class="col-sm-5 text-danger">
+                    <span asp-validation-for="Subtotal"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="discount" class="col-sm-3">Discount percent:</label>
+                <div class="col-sm-4">
+                    <input asp-for="DiscountPercent" id="discount" class="form-control">
+                </div>
+                <div class="col-sm-5 text-danger">
+                    <span asp-validation-for="DiscountPercent"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3">Discount amount:</label>
+                <label class="col-sm-4">@Model.DiscountAmount.ToString("C")</label>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-3">Total:</label>
+                <label class="col-sm-4">@Model.Total.ToString("C")</label>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <input type="submit" value="Calculate" class="btn btn-success" />
+                    <a asp-action="Index" class="btn btn-success">Clear</a>
+                </div>
+            </div>
+        </form>
+    </main>
+</div>
